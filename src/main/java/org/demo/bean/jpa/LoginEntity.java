@@ -22,7 +22,7 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name="login", catalog="bengkel_nirwana" )
+@Table(name="login" )
 // Define named queries here
 @NamedQueries ( {
   @NamedQuery ( name="LoginEntity.countAll", query="SELECT COUNT(x) FROM LoginEntity x" )
