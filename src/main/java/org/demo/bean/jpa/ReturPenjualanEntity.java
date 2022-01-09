@@ -36,7 +36,8 @@ public class ReturPenjualanEntity implements Serializable {
     // ENTITY PRIMARY KEY ( BASED ON A SINGLE FIELD )
     //----------------------------------------------------------------------
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idretur_penjualan_seq")
+    @SequenceGenerator(name = "idretur_penjualan_seq", sequenceName = "idretur_penjualan_seq", allocationSize = 1)
     @Column(name="idretur_penjualan", nullable=false)
     private Integer    idreturPenjualan ;
 

@@ -35,7 +35,8 @@ public class PenjualanDetailEntity implements Serializable {
     // ENTITY PRIMARY KEY ( BASED ON A SINGLE FIELD )
     //----------------------------------------------------------------------
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_penjualan_detail_seq")
+    @SequenceGenerator(name = "id_penjualan_detail_seq", sequenceName = "id_penjualan_detail_seq", allocationSize = 1)
     @Column(name="id_penjualan_detail", nullable=false)
     private Integer    idPenjualanDetail ;
 

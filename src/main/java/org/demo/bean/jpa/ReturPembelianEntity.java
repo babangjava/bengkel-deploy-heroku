@@ -36,7 +36,8 @@ public class ReturPembelianEntity implements Serializable {
     // ENTITY PRIMARY KEY ( BASED ON A SINGLE FIELD )
     //----------------------------------------------------------------------
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idretur_pembelian_seq")
+    @SequenceGenerator(name = "idretur_pembelian_seq", sequenceName = "idretur_pembelian_seq", allocationSize = 1)
     @Column(name="idretur_pembelian", nullable=false)
     private Integer    idreturPembelian ;
 

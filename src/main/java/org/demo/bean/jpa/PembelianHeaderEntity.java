@@ -37,7 +37,8 @@ public class PembelianHeaderEntity implements Serializable {
     // ENTITY PRIMARY KEY ( BASED ON A SINGLE FIELD )
     //----------------------------------------------------------------------
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_pembelian_seq")
+    @SequenceGenerator(name = "id_pembelian_seq", sequenceName = "id_pembelian_seq", allocationSize = 1)
     @Column(name="id_pembelian", nullable=false)
     private Integer    idPembelian  ;
 
