@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="pdfReport"
+          class="org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView"
+          p:url="classpath:META-INF/report/mekanik.jrxml"
+          p:reportDataKey="dataSource">
+        <property name="headers">
+            <props>
+                <prop key="Content-Disposition">
+                    attachment; filename=Data Mekanik.pdf
+                </prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="xlsReport"
+          class="org.springframework.web.servlet.view.jasperreports.JasperReportsXlsView"
+          p:url="classpath:META-INF/report/mekanik.jrxml"
+          p:reportDataKey="dataSource">
+        <property name="headers">
+            <props>
+                <prop key="Content-Disposition">
+                    attachment; filename=Data Mekanik.xls
+                </prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>

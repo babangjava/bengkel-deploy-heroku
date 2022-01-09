@@ -1,0 +1,24 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <security:http auto-config="true" use-expressions="true" >
+        <security:intercept-url pattern="/login" access="permitAll()"/>
+        <security:intercept-url pattern="/assets/**" access="permitAll"/>
+        <security:intercept-url pattern="/**" access="isAuthenticated()"/>
+        <security:form-login login-page="/login" login-processing-url="/authenticate" default-target-url="/" always-use-default-target="true" authentication-failure-url="/login?error" username-parameter="username" password-parameter="password" />
+        <security:logout logout-url="/logout" logout-success-url="/login?logout" invalidate-session="true" />
+    </security:http>
+    <security:authentication-manager>
+        <security:authentication-provider user-service-ref="userDetailsService"/>
+    </security:authentication-manager>
+
+    <bean name="userDetailsService" class="org.demo.web.controller.LoadUsername" />
+
+    <!--<bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">-->
+        <!--<constructor-arg name="strength" value="11"/>-->
+    <!--</bean>-->
+
+</beans>
