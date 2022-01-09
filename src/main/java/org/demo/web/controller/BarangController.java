@@ -99,7 +99,7 @@ public class BarangController extends AbstractController {
 	@RequestMapping()
 	public String list(Model model) {
 		log("Action 'list'");
-		List<Barang> list = new ArrayList<>();
+		List<Barang> list = new ArrayList<Barang>();
 		model.addAttribute(MAIN_LIST_NAME, list);		
 		return JSP_LIST;
 	}
