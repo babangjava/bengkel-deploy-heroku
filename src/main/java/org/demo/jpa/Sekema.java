@@ -12,7 +12,7 @@ public class Sekema implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-//    @Id
+    @Id
 //    @GeneratedValue(strategy = GenerationType.AUTO)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEKEMA_SEQ")
     @SequenceGenerator(name = "SEKEMA_SEQ", sequenceName = "SEKEMA_SEQ", allocationSize = 1)
