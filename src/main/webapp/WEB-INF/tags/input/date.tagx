@@ -5,24 +5,25 @@
 	<jsp:directive.attribute name="name" type="java.lang.String" required="true" rtexprvalue="true" description="path attribute" />
 	<jsp:directive.attribute name="cssClass" type="java.lang.String" required="false" rtexprvalue="true" description="css class" />
 	<jsp:directive.attribute name="readOnly" type="java.lang.Boolean" required="false" rtexprvalue="true" description="readOnly" />
-	
+
 	<!-- default values -->
-	
+
 	<c:if test="${empty cssClass}">
 		<c:set var="cssClass" value="form-control" />
 	</c:if>
-	
+
 	<c:if test="${empty readOnly}">
 		<c:set var="readOnly" value="false" />
 	</c:if>
-	
+
 	<!-- content -->
-	
+
 	<form:input id="${id}" path="${name}" class="${cssClass}"/>
 	<script type="text/javascript">
 		$('#${id}').datepicker({
-			language: '${fn:substring(pageContext.response.locale, 0, 2)}'
+			language: '${fn:substring(pageContext.response.locale, 0, 2)}',
+			todayHighlight:true
 		});
 	</script>
-		
+
 </jsp:root>

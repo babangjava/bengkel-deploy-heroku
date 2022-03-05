@@ -1,13 +1,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>group.to.be.defined</groupId>
-	<artifactId>demo</artifactId>
+	<groupId>app-print-digital</groupId>
+	<artifactId>app-print-digital</artifactId>
 	<version>0.1</version>
 	<packaging>war</packaging>
-	
+
 	<dependencies>
 
+		<!-- Add the JDBC driver here -->
+ 		<!--<dependency>-->
+            <!--<groupId>mysql</groupId>-->
+            <!--<artifactId>mysql-connector-java</artifactId>-->
+            <!--<version>5.1.44</version>-->
+        <!--</dependency>-->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
@@ -22,16 +28,10 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-support</artifactId>
-			<version>3.2.6.RELEASE</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>3.2.6.RELEASE</version>
 		</dependency>
-		
+
 		<!-- Bean validation -->
 		<dependency>
 			<groupId>javax.validation</groupId>
@@ -41,55 +41,23 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>4.3.1.Final</version> 
-		</dependency>
-		
-		<!-- Dependencies for Unit Testing -->
-  		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit-dep</artifactId>
-			<version>4.11</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.11</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-		    <groupId>org.mockito</groupId>
-			<artifactId>mockito-all</artifactId>
-		    <version>1.9.5</version>
-		    <scope>test</scope>
-		</dependency>
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-test</artifactId>
-		    <version>3.2.6.RELEASE</version>
-		    <scope>test</scope>
+			<version>4.3.1.Final</version>
 		</dependency>
 
-		<!-- Logging : SLF4J is used by Hibernate -->
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.7.5</version>
-		</dependency>
-		<!-- SLF4J Simple implementation : sends log messages to the console -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-simple</artifactId> 
-			<version>1.7.5</version>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
 		</dependency>
 
 		<!-- Insert contents of : pom_dependencies_persistence.txt -->
+
 		<!-- data -->
 		<dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
 			<version>3.2.6.RELEASE</version>
-        </dependency>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
@@ -105,7 +73,7 @@
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
 			<artifactId>hibernate-jpa-2.0-api</artifactId> <!-- javax.persistence.* -->
@@ -132,12 +100,13 @@
 		</dependency>
 
 		<!-- Insert contents of : pom_dependencies_service.txt -->
+
         <dependency>
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>
 			<version>0.6.2</version>
 		</dependency>
-				
+
 		<!-- Insert contents of : pom_dependencies_web.txt -->
 		<!-- Spring Web MVC -->
 		<dependency>
@@ -157,7 +126,7 @@
             <artifactId>tiles-jsp</artifactId>
             <version>2.2.2</version>
         </dependency>
-        
+
 		<!-- Servlet/JSP -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -182,6 +151,7 @@
 			<version>1.9.13</version>
 		</dependency>
 
+
 		<!-- Spring Security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -202,28 +172,28 @@
 			<version>${spring.security.version}</version>
 		</dependency>
 
-		<!--ireport-->
-		<dependency>
-			<groupId>net.sf.jasperreports</groupId>
-			<artifactId>jasperreports</artifactId>
-			<version>5.1.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
-			<version>3.9</version>
-		</dependency>
 
 	</dependencies>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.security.version>3.2.6.RELEASE</spring.security.version>
+		<spring.security.version>3.2.3.RELEASE</spring.security.version>
 		<java.version>1.7</java.version>
 	</properties>
 
-
+	<!--<build>-->
+		<!--<plugins>-->
+			<!--<plugin>-->
+				<!--<groupId>org.apache.maven.plugins</groupId>-->
+				<!--<artifactId>maven-compiler-plugin</artifactId>-->
+				<!--<version>2.5.1</version>-->
+				<!--<configuration>-->
+					<!--<source>${java.version}</source>-->
+					<!--<target>${java.version}</target>-->
+				<!--</configuration>-->
+			<!--</plugin>-->
+		<!--</plugins>-->
+	<!--</build>-->
 	<build>
 		<plugins>
 			<plugin>

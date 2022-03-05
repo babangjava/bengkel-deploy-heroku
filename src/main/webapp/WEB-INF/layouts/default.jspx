@@ -1,76 +1,35 @@
 <html xmlns:jsp="http://java.sun.com/JSP/Page"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
-	xmlns:tiles="http://tiles.apache.org/tags-tiles"
-	xmlns:spring="http://www.springframework.org/tags">
-<jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" />
+	  xmlns:tiles="http://tiles.apache.org/tags-tiles">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<meta http-equiv="cache-control" content="no-cache" />
 
-	<!-- Get the user locale from the page context (it was set by Spring MVC's locale resolver) -->
-	<c:set var="plocale">${pageContext.response.locale}</c:set>
-	<c:set var="userLocale">
-		<c:out value="${fn:replace(plocale, '_', '-')}" default="en" />
-	</c:set>
+	<title>Aplikasi Stok Barang</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
 
-	<spring:message code="application_name" var="app_name" htmlEscape="false" />
-	<title><c:out value="${app_name}" /></title>
+	<link href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css" rel="stylesheet"><jsp:text/></link>
+	<link href="${pageContext.request.contextPath}/assets/css/bootstrap-table.min.css" rel="stylesheet"><jsp:text/></link>
+	<link href="${pageContext.request.contextPath}/assets/css/datepicker3.css" rel="stylesheet"><jsp:text/></link>
+	<link href="${pageContext.request.contextPath}/assets/css/styles.css" rel="stylesheet"><jsp:text/></link>
 
-	<spring:url value="/assets/css/bootstrap.min.css" var="boostrap"/>
-	<spring:url value="/assets/css/bootstrap-table.min.css" var="boostraptable"/>
-	<spring:url value="/assets/css/datepicker3.css" var="css_url_datepicker" />
-	<spring:url value="/assets/css/font-awesome.css" var="font" />
-	<spring:url value="/assets/css/custom-styles.css" var="style" />
-	<spring:url value="http://fonts.googleapis.com/css?family=Open+Sans" var="textStyle" />
 
-	<link href="${boostrap}" rel="stylesheet" type="text/css"/>
-	<link href="${css_url_datepicker}" rel="stylesheet" type="text/css"/>
-	<link href="${boostraptable}" rel="stylesheet" type="text/css"/>
-	<link href="${font}" rel="stylesheet" type="text/css"/>
-	<link href="${style}" rel="stylesheet" type="text/css"/>
-	<link href="${textStyle}" rel="stylesheet" type="text/css"/>
-
-	<spring:url value="/assets/js/jquery-1.10.2.min.js" var="jquery" />
-	<spring:url value="/assets/js/bootstrap.js" var="boostrapjs" />
-	<spring:url value="/assets/js/bootstrap-table.min.js" var="boostraptablejs" />
-	<spring:url value="/assets/js/bootstrap-datepicker.js" var="js_url_bootstrap_datepicker" />
-	<spring:url value="/assets/js/locales/bootstrap-datepicker.${fn:substring(plocale, 0, 2)}.js" var="js_url_bootstrap_datepicker_locale" />
-
-	<script type="text/javascript" src="${jquery}"><jsp:text/></script>
-	<script type="text/javascript" src="${boostrapjs}"><jsp:text/></script>
-	<script type="text/javascript" src="${boostraptablejs}"><jsp:text/></script>
-	<script type="text/javascript" src="${js_url_bootstrap_datepicker}"><jsp:text/></script>
-	<script type="text/javascript" src="${js_url_bootstrap_datepicker_locale}" charset="UTF-8"><jsp:text/></script>
-
-	<!-- Metis Menu Js -->
-	<spring:url value="/assets/js/jquery.metisMenu.js" var="menujs" />
-	<spring:url value="/assets/js/morris/raphael-2.1.0.min.js" var="raphael" />
-	<spring:url value="/assets/js/morris/morris.js" var="morris" />
-	<spring:url value="/assets/js/easypiechart.js" var="easypiechart" />
-	<spring:url value="/assets/js/easypiechart-data.js" var="easypiechartData" />
-	<spring:url value="/assets/js/Lightweight-Chart/jquery.chart.js" var="chart" />
-	<spring:url value="/assets/js/custom-scripts.js" var="customjs" />
-
-	<script type="text/javascript" src="${menujs}"><jsp:text/></script>
-	<script type="text/javascript" src="${raphael}"><jsp:text/></script>
-	<script type="text/javascript" src="${morris}"><jsp:text/></script>
-	<script type="text/javascript" src="${easypiechart}"><jsp:text/></script>
-	<script type="text/javascript" src="${easypiechartData}"><jsp:text/></script>
-	<script type="text/javascript" src="${chart}"><jsp:text/></script>
-	<script type="text/javascript" src="${customjs}"><jsp:text/></script>
-
+	<script src="${pageContext.request.contextPath}/assets/js/jquery-1.11.1.min.js"><jsp:text/></script>
+	<script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"><jsp:text/></script>
+	<script src="${pageContext.request.contextPath}/assets/js/tableExport.min.js"><jsp:text/></script>
+	<script src="${pageContext.request.contextPath}/assets/js/jspdf.min.js"><jsp:text/></script>
+	<script src="${pageContext.request.contextPath}/assets/js/jspdf.plugin.autotable.js"><jsp:text/></script>
+	<script src="${pageContext.request.contextPath}/assets/js/bootstrap-table.min.js"><jsp:text/></script>
+	<script src="${pageContext.request.contextPath}/assets/js/bootstrap-table-export.min.js"><jsp:text/></script>
+	<script src="${pageContext.request.contextPath}/assets/js/bootstrap-datepicker.js"><jsp:text/></script>
 </head>
 <jsp:directive.page contentType="text/html;charset=UTF-8" />
 <jsp:directive.page pageEncoding="UTF-8" />
 <body>
 	<tiles:insertAttribute name="header"/>
-	<div class="panel-body">
-		<div class="row">
-			<tiles:insertAttribute name="body"/>
-		</div>
-	</div>
+	<tiles:insertAttribute name="body"/>
 	<tiles:insertAttribute name="footer"/>
 </body>
 </html>

@@ -1,92 +1,116 @@
-<div id="wrapper" style="overflow-x: hidden; overflow-y: hidden">
-    <nav class="navbar navbar-default top-navbar" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/"><strong>bluebox</strong></a>
-        </div>
-
-        <ul class="nav navbar-top-links navbar-right">
-            <!-- /.dropdown -->
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li>
-                        <a href="#"><i class="fa fa-gear fa-fw"></i> Change Password</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <form action="${pageContext.request.contextPath}/logout" method="post" id="logoutForm">
-                            <input type="hidden"
-                                   name="${_csrf.parameterName}"
-                                   value="${_csrf.token}" />
-                        </form>
-                        <script>
-                            function formSubmit() {
-                                document.getElementById("logoutForm").submit();
-                            }
-                        </script>
-                        <a href="javascript:formSubmit()"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                    </li>
-
-                </ul>
-                <!-- /.dropdown-user -->
-            </li>
-            <!-- /.dropdown -->
-        </ul>
-    </nav>
-    <!--/. NAV TOP  -->
-    <nav class="navbar-default navbar-side" role="navigation">
-        <div class="sidebar-collapse">
-            <ul class="nav" id="main-menu">
-                <li>
-                    <a class="active-menu" href="${pageContext.request.contextPath}/"><i class="fa fa-dashboard"></i> Dashboard</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-sitemap"></i> Master<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="${pageContext.request.contextPath}/barang">Barang</a> </li>
-                        <li><a href="${pageContext.request.contextPath}/mekanik">Mekanik</a> </li>
+            <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-signal"></span> APP-NAME<span></span></a>
+            <ul class="user-menu">
+                <li class="dropdown pull-right">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+                        <!-- ====================================================LOGIN -->
+                        ADMIN <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="ganti-password.php"><span class="glyphicon glyphicon-user"></span> Ganti password</a></li>
+                        <!--<li><a href="#"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>-->
+                        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                     </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-sitemap"></i> Transaki<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="${pageContext.request.contextPath}/pembelianHeader">Pembelian</a></li>
-                        <li><a href="${pageContext.request.contextPath}/penjualanHeader">Penjualan</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-sitemap"></i> Laporan<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="${pageContext.request.contextPath}/candidateTest">Penjualan</a></li>
-                        <li><a href="${pageContext.request.contextPath}/candidateTest">Pembelian</a></li>
-                        <li><a href="${pageContext.request.contextPath}/candidateTest">Retur Penjualan</a></li>
-                        <li><a href="${pageContext.request.contextPath}/candidateTest">Retur Pembelian</a></li>
-                        <li><a href="${pageContext.request.contextPath}/candidateTest">Pendapatan Mekanik</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/logout"><i class="fa fa-fw fa-file"></i> Log out</a>
                 </li>
             </ul>
-
         </div>
 
-    </nav>
-    <!-- /. NAV SIDE  -->
-    <div id="page-wrapper">
+    </div>
+</nav>
 
-        <div id="page-inner">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div id="pageName">Home</div>
-                        </div>
+<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+
+    <ul class="nav menu">
+        <li class="active"><a href="/"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+
+
+        <li class="parent ">
+            <a href="#">
+                <span data-toggle="collapse" href="#sub-item-1" class="glyphicon glyphicon-th"></span> Master <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="glyphicon glyphicon-chevron-down"></em></span>
+            </a>
+            <ul class="children collapse" id="sub-item-1">
+                <li>
+                    <a class="" href="${pageContext.request.contextPath}/modal">
+                        <span class="glyphicon glyphicon-tasks"></span> Modal
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="${pageContext.request.contextPath}/sekema">
+                        <span class="glyphicon glyphicon glyphicon-tags"></span> Sekema
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="parent ">
+            <a href="#">
+                <span data-toggle="collapse" href="#sub-item-2" class="glyphicon glyphicon-transfer"></span> Transaksi <span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="glyphicon glyphicon-chevron-down"></em></span>
+            </a>
+            <ul class="children collapse" id="sub-item-2">
+                <li>
+                    <a class="" href="transaksi1.php">
+                        <span class="glyphicon glyphicon-arrow-right"></span> Barang Masuk
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="transaksi2.php">
+                        <span class="glyphicon glyphicon glyphicon-arrow-left"></span> Barang Keluar
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="parent ">
+            <a href="#">
+                <span data-toggle="collapse" href="#sub-item-3" class="glyphicon glyphicon-stats"></span> Laporan <span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="glyphicon glyphicon-chevron-down"></em></span>
+            </a>
+            <ul class="children collapse" id="sub-item-3">
+                <li>
+                    <a class="" href="history1.php">
+                        <span class="glyphicon glyphicon-pencil"></span> History Transaksi
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="laporan1.php">
+                        <span class="glyphicon glyphicon glyphicon-list-alt"></span> Stok Barang
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+
+        <li class="parent ">
+            <a href="#">
+                <span data-toggle="collapse" href="#sub-item-4" class="glyphicon glyphicon-list"> </span> Administrator <span data-toggle="collapse" href="#sub-item-4" class="icon pull-right"><em class="glyphicon glyphicon-chevron-down"></em></span>
+            </a>
+            <ul class="children collapse" id="sub-item-4">
+                <li>
+                    <a class="" href="users.php">
+                        <span class="glyphicon glyphicon-user"></span> Users
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="gudang.php">
+                        <span class="glyphicon glyphicon-home"></span> Gudang
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="backup.php">
+                        <span class="glyphicon glyphicon-cloud-download"></span> Backup
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="restore.php">
+                        <span class="glyphicon glyphicon-cloud-upload"></span> Restore
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

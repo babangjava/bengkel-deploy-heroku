@@ -1,7 +1,7 @@
 package org.demo.web.controller;
-import org.demo.bean.jpa.LoginEntity;
-import org.demo.data.repository.jpa.LoginJpaRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import org.demo.jpa.Login;
+import org.demo.repository.LoginJpaRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,18 +9,19 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.HashSet;
 import java.util.Set;
 
 public class LoadUsername implements UserDetailsService {
 
-    @Autowired
+    @Resource
     private LoginJpaRepository userRepository;
 
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        LoginEntity user= userRepository.findByUserName(username);
+        Login user= userRepository.findByUserName(username);
 
         Set<GrantedAuthority> grantedAuthorities = new HashSet<GrantedAuthority>();
         grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));

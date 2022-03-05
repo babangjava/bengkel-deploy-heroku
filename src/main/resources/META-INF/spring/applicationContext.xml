@@ -24,8 +24,4 @@
 		<property name="ignoreResourceNotFound" value="false"/>
 	</bean>
 
-	<bean class="org.springframework.web.servlet.view.XmlViewResolver">
-		<property name="location" value="/WEB-INF/jasper-view.xml"/>
-	</bean>
-
 </beans>

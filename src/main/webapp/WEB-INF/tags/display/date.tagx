@@ -3,14 +3,14 @@
 
 	<jsp:directive.attribute name="value" type="java.util.Date" required="true" rtexprvalue="true" description="date" />
 	<jsp:directive.attribute name="dateFormatPattern" type="java.lang.String" required="false" rtexprvalue="true" description="pattern" />
-	
+
 	<!-- default values -->
-	
+
 	<c:set var="dateFormatPattern">
 		<s:message code="date_format_pattern" />
 	</c:set>
-	
+
 	<!-- content -->
 	<fmt:formatDate value="${value}" pattern="${dateFormatPattern}" />
-		
+
 </jsp:root>
