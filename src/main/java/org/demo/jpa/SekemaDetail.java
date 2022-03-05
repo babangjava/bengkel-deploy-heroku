@@ -11,8 +11,10 @@ public class SekemaDetail implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEKEMA_DETAIL_SEQ")
+    @SequenceGenerator(name = "SEKEMA_DETAIL_SEQ", sequenceName = "SEKEMA_DETAIL_SEQ", allocationSize = 1)
     @Column(name = "id", nullable = false)
     private Integer id;
 

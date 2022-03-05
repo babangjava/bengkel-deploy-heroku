@@ -9,8 +9,10 @@ public class Modal implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MODAL_SEQ")
+    @SequenceGenerator(name = "MODAL_SEQ", sequenceName = "MODAL_SEQ", allocationSize = 1)
     @Column(name = "id", nullable = false)
     private Integer id;
 
